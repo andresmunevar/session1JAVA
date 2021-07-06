@@ -23,6 +23,8 @@ process:
   show results
 */
 
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
 
 public class Ejemplo1 {
   public static void main(String[] args) throws Exception {
@@ -45,7 +47,9 @@ public class Ejemplo1 {
         if(num > max)
           max = num;
       }
-      System.out.println("average: " + sum / (double)n);
+      DecimalFormat df = new DecimalFormat("##.##");
+      df.setRoundingMode(RoundingMode.DOWN);
+      System.out.println("average: " + df.format(sum / (double)n));
       System.out.println("maximum is: " + max);
     }
     read.close();
